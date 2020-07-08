@@ -14,6 +14,7 @@ security_groups:
         to_port: 22
         cidr_ip: 0.0.0.0/0
 
+# Optional security group
   - name: web
     desc: the security group for the web server 
     rules:
@@ -26,11 +27,6 @@ security_groups:
         to_port: "443"
         cidr_ip: 0.0.0.0/0
   
-# Instances to launch be launched.
-# If you re-run the playbook after modifying exact_count,
-# instances will be terminated if the actual count > exact_count,
-# or new instances will be launched if actual count < exact_count.
-
 ec2_instances:
   - instance_type: t2.micro
     image: "{{ image_id }}"
